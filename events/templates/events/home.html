@@ -14,5 +14,8 @@ Home • Spooky Experiences
   <a class="btn btn-orange btn-lg mt-3" href="{% url 'event_list' %}">
     Browse Events
   </a>
+
+  {% load static %}
+<img style="width: 200px; height: auto;" src="{% static 'images/grave.png' %}" alt="Static test">
 </div>
 {% endblock %}
