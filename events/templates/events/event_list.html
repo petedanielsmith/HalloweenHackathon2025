@@ -7,6 +7,48 @@ Events • Spooky Experiences
 {% block content %}
 <h1 class="mb-4 text-center">Events</h1>
 
+<!-- FILTER BAR -->
+<form method="get" class="row g-3 align-items-end mb-4 bg-dark p-3 rounded">
+  <div class="col-md-4">
+    <label class="form-label text-light">Search</label>
+    <input
+      type="text"
+      name="q"
+      value="{{ request.GET.q }}"
+      class="form-control bg-dark text-light border-secondary"
+      placeholder="Search by title or location..."
+    />
+  </div>
+
+  <div class="col-md-3">
+    <label class="form-label text-light">Min Rating</label>
+    <select name="min_rating" class="form-select bg-dark text-light border-secondary">
+      <option value="">Any</option>
+      {% for r in "12345"|make_list %}
+      <option value="{{ r }}" {% if request.GET.min_rating == r %}selected{% endif %}>
+        {{ r }}+
+      </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="col-md-3">
+    <label class="form-label text-light">Max Cost (£)</label>
+    <input
+      type="number"
+      name="max_cost"
+      value="{{ request.GET.max_cost }}"
+      class="form-control bg-dark text-light border-secondary"
+      placeholder="e.g. 100"
+    />
+  </div>
+
+  <div class="col-md-2 d-grid">
+    <button class="btn btn-orange" type="submit">Filter</button>
+  </div>
+</form>
+
+<!-- EVENTS GRID -->
 <div class="row g-4">
   {% for event in events %}
   <div class="col-12 col-md-6 col-lg-4">
@@ -16,29 +58,42 @@ Events • Spooky Experiences
       {% endif %}
       <div class="card-body">
         <h5 class="card-title">{{ event.title }}</h5>
+        <p class="card-text text-secondary small mb-1">
+          📍 {{ event.location }} • ⭐ {{ event.rating }}
+        </p>
         <p class="card-text">{{ event.description|truncatewords:20 }}</p>
-        <a href="{% url 'event_detail' event.id %}" class="btn btn-orange">View</a>
+        <a href="{% url 'event_detail' event.id %}" class="btn btn-orange w-100">View Details</a>
       </div>
     </div>
   </div>
   {% empty %}
-  <p>No events available yet.</p>
+  <p>No events match your filters.</p>
   {% endfor %}
 </div>
 
+<!-- PAGINATION -->
 {% if is_paginated %}
-<div class="pagination justify-content-center mt-4">
-  {% if page_obj.has_previous %}
-  <a class="btn btn-secondary me-2" href="?page={{ page_obj.previous_page_number }}">Previous</a>
-  {% endif %}
+  <div class="pagination justify-content-center mt-4">
+    {% if page_obj.has_previous %}
+      <a class="btn btn-secondary me-2"
+         href="?page={{ page_obj.previous_page_number }}{% for k, v in request.GET.items %}{% if k != 'page' and v %}&{{ k }}={{ v }}{% endif %}{% endfor %}">
+        Previous
+      </a>
+    {% endif %}
 
-  <span class="btn btn-outline-light disabled">
-    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-  </span>
+    <span class="btn btn-outline-light disabled">
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    </span>
 
-  {% if page_obj.has_next %}
-  <a class="btn btn-secondary ms-2" href="?page={{ page_obj.next_page_number }}">Next</a>
-  {% endif %}
-</div>
+    {% if page_obj.has_next %}
+      <a class="btn btn-secondary ms-2"
+         href="?page={{ page_obj.next_page_number }}{% for k, v in request.GET.items %}{% if k != 'page' and v %}&{{ k }}={{ v }}{% endif %}{% endfor %}">
+        Next
+      </a>
+    {% endif %}
+  </div>
 {% endif %}
+
+
+
 {% endblock %}

@@ -4,6 +4,8 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic import ListView, DetailView
 from .models import Event
 from django.db.models import Count, Avg
+from django.db.models import Q
+from django.utils.http import urlencode
 
 def home(request):
     return render(request, 'events/home.html')
@@ -15,7 +17,44 @@ class EventListView(ListView):
     model = Event
     template_name = 'events/event_list.html'
     context_object_name = 'events'
-    paginate_by = 6  # set your page size
+    paginate_by = 6
+
+    def get_queryset(self):
+        queryset = Event.objects.all()
+        q = self.request.GET.get('q')
+        min_rating = self.request.GET.get('min_rating')
+        max_cost = self.request.GET.get('max_cost')
+
+        if q:
+            queryset = queryset.filter(title__icontains=q) | queryset.filter(location__icontains=q)
+        if min_rating:
+            queryset = queryset.filter(rating__gte=min_rating)
+        if max_cost:
+            queryset = queryset.filter(cost__lte=max_cost)
+
+        return queryset
+
+    def get(self, request, *args, **kwargs):
+        """
+        Redirect messy querystrings to clean ones.
+        Example:
+        /events/?page=1&q=&min_rating=&max_cost=
+        becomes /events/
+        """
+        params = {}
+        for key, value in request.GET.items():
+            if value and not (key == "page" and value == "1"):
+                params[key] = value
+
+        clean_query = urlencode(params)
+
+        # If current querystring is different from clean one → redirect
+        if request.META.get("QUERY_STRING", "") != clean_query:
+            base = request.path
+            url = f"{base}?{clean_query}" if clean_query else base
+            return redirect(url)
+
+        return super().get(request, *args, **kwargs)
 
 class EventDetailView(DetailView):
     model = Event
