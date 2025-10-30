@@ -14,124 +14,147 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-  html,
-  body {
-    height: 100%;
-    margin: 0;
-  }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
 
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background: #0d0c13;
-    color: #eee;
-  }
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background: #0d0c13;
+        color: #eee;
+      }
 
-  main {
-    flex: 1 0 auto; /* let main expand to fill space */
-  }
+      main {
+        flex: 1 0 auto; /* let main expand to fill space */
+      }
 
-  .footer {
-    flex-shrink: 0; /* footer stays at bottom */
-    background: #16151f;
-  }
+      .footer {
+        flex-shrink: 0; /* footer stays at bottom */
+        background: #16151f;
+      }
 
-  .navbar {
-    background: #16151f;
-  }
+      .navbar {
+        background: #16151f;
+      }
 
-  a,
-  .nav-link,
-  .navbar-brand {
-    color: #f6a824 !important;
-  }
+      a,
+      .nav-link,
+      .navbar-brand {
+        color: #f6a824 !important;
+      }
 
-  .card {
-    background: #1f1e2b;
-    color: #eee;
-    border: none;
-  }
+      .card {
+        background: #1f1e2b;
+        color: #eee;
+        border: none;
+      }
 
-  .btn-orange {
-    background-color: #f6a824;
-    color: #1f1e2b !important;
-    border: none;
-    font-weight: 600;
-  }
+      .btn-orange {
+        background-color: #f6a824;
+        color: #1f1e2b !important;
+        border: none;
+        font-weight: 600;
+      }
 
-  .btn-orange:hover {
-    background-color: #d8900f;
-    color: #fff !important;
-    transition: background-color 0.2s ease;
-  }
+      .btn-orange:hover {
+        background-color: #d8900f;
+        color: #fff !important;
+        transition: background-color 0.2s ease;
+      }
 
-  .hover-orange:hover {
-    color: #f6a824 !important;
-  }
+      .hover-orange:hover {
+        color: #f6a824 !important;
+      }
 
-  .modal-content {
-    background: #1a1925 !important;
-    color: #eee;
-  }
+      .modal-content {
+        background: #1a1925 !important;
+        color: #eee;
+      }
 
-  /* Use Bootstrap’s white close icon variant */
-  .btn-close-white {
-    filter: invert(1) brightness(1.2);
-    opacity: 0.7;
-  }
-  .btn-close-white:hover {
-    opacity: 1;
-  }
+      /* Use Bootstrap’s white close icon variant */
+      .btn-close-white {
+        filter: invert(1) brightness(1.2);
+        opacity: 0.7;
+      }
+      .btn-close-white:hover {
+        opacity: 1;
+      }
 
-  /* Subtle orange border hover glow */
-  .modal-content:hover {
-    box-shadow: 0 0 20px rgba(246, 168, 36, 0.15);
-  }
+      /* Subtle orange border hover glow */
+      .modal-content:hover {
+        box-shadow: 0 0 20px rgba(246, 168, 36, 0.15);
+      }
 
 
-  /* Animated Bat CSS */
+      /* Animated Bat CSS */
 
-  .bat {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    width: 80px;
-    height: 48px;
-    transform: translateX(-50%);
-    z-index: 9999;
-    pointer-events: none;
-    filter: drop-shadow(0 4px 8px rgba(209, 209, 209, 0.6));
-  }
+      .bat {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        width: 80px;
+        height: 48px;
+        transform: translateX(-50%);
+        z-index: 9999;
+        pointer-events: none;
+        filter: drop-shadow(0 4px 8px rgba(209, 209, 209, 0.6));
+      }
 
-  .bat svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
+      .bat svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
 
-  /* Wing pivots for flapping */
-  .bat #leftWing  { transform-origin: 42% 58%; }
-  .bat #rightWing { transform-origin: 58% 58%; }
+      /* Wing pivots for flapping */
+      .bat #leftWing  { transform-origin: 42% 58%; }
+      .bat #rightWing { transform-origin: 58% 58%; }
 
-  @keyframes wing-flap {
-    0%,100% { transform: rotate(0deg) }
-    50% { transform: rotate(-22deg) }
-  }
-  @keyframes wing-flap-right {
-    0%,100% { transform: rotate(0deg) }
-    50% { transform: rotate(22deg) }
-  }
+      @keyframes wing-flap {
+        0%,100% { transform: rotate(0deg) }
+        50% { transform: rotate(-22deg) }
+      }
+      @keyframes wing-flap-right {
+        0%,100% { transform: rotate(0deg) }
+        50% { transform: rotate(22deg) }
+      }
 
-  .bat.flap #leftWing  { animation: wing-flap 0.16s linear infinite; }
-  .bat.flap #rightWing { animation: wing-flap-right 0.16s linear infinite; }
+      .bat.flap #leftWing  { animation: wing-flap 0.16s linear infinite; }
+      .bat.flap #rightWing { animation: wing-flap-right 0.16s linear infinite; }
 
-  @keyframes body-bob {
-    0%,100% { transform: translateY(0) }
-    50% { transform: translateY(1.2px) }
-  }
-  .bat.flap #body { animation: body-bob 0.32s ease-in-out infinite; }
-</style>
+      @keyframes body-bob {
+        0%,100% { transform: translateY(0) }
+        50% { transform: translateY(1.2px) }
+      }
+      .bat.flap #body { animation: body-bob 0.32s ease-in-out infinite; }
+
+
+      /* Evil Eye CSS */
+      .evil-eye {
+        position: fixed;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s ease;
+        z-index: -10;
+      }
+
+      @keyframes flicker {
+        0%, 90% { opacity: 1; filter: drop-shadow(0 0 6px red); }
+        20% { opacity: 0.6; filter: drop-shadow(0 0 3px darkred); }
+        40% { opacity: 1; filter: drop-shadow(0 0 10px #9f0909ff); }
+        60% { opacity: 0.5; filter: drop-shadow(0 0 2px #400); }
+        80% { opacity: 0.9; filter: drop-shadow(0 0 8px crimson); }
+      }
+
+      .evil-eye.flicker {
+        animation: flicker 0.4s infinite;
+      }
+
+    </style>
   </head>
   <body>
     <!-- NAVBAR -->
@@ -362,5 +385,74 @@ class Bat {
 // === Create 6 bats ===
 for (let i = 0; i < 6; i++) new Bat(i);
 </script>
+
+
+<script>
+  function spawnEvilEyes() {
+    const eyes = document.createElement('div');
+    eyes.className = 'evil-eye';
+
+    // Inline SVG of sharp glowing eyes
+    eyes.innerHTML = `
+    <svg viewBox="0 0 100 60" width="100" height="60">
+      <defs>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="2.5" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- Left eye -->
+      <path d="M15,30 Q28,15 40,30 Q28,45 15,30 Z"
+            fill="red" stroke="darkred" stroke-width="1.5"
+            filter="url(#glow)" />
+      <!-- Right eye -->
+      <path d="M60,30 Q72,15 85,30 Q72,45 60,30 Z"
+            fill="red" stroke="darkred" stroke-width="1.5"
+            filter="url(#glow)" />
+    </svg>
+    `;
+
+    // Random position
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight * 0.6) + 50;
+    eyes.style.left = `${x}px`;
+    eyes.style.top = `${y}px`;
+
+    // Random scaling & hue
+    const scale = 0.2 + Math.random() * 1.2;
+    const hue = Math.random() * 20; // red/yellow tint
+    eyes.style.transform = `scale(${scale})`;
+    eyes.querySelectorAll('path').forEach(p => {
+      p.setAttribute('fill', `hsl(${hue}, 100%, 50%)`);
+      p.setAttribute('stroke', `hsl(${hue}, 80%, 25%)`);
+    });
+
+    document.body.appendChild(eyes);
+
+    // Fade in
+    requestAnimationFrame(() => eyes.style.opacity = 1);
+
+    // Start flicker
+    eyes.classList.add('flicker');
+
+    // Fade out and remove
+    const lifespan = 3000 + Math.random() * 3000;
+    setTimeout(() => {
+      eyes.style.opacity = 0;
+      eyes.classList.remove('flicker');
+      setTimeout(() => eyes.remove(), 1000);
+    }, lifespan);
+  }
+
+  // Spawn new sets of eyes occasionally
+  setInterval(() => {
+    if (Math.random() < 0.6) spawnEvilEyes();
+  }, 1500);
+  </script>
+
   </body>
 </html>
