@@ -1,36 +1,99 @@
 {% extends "base.html" %}
-{% block title %}Purchase • {{ event.title }}{% endblock %}
+{% block title %}Checkout • {{ event.title }}{% endblock %}
 {% block content %}
-<h1>Checkout — {{ event.title }}</h1>
-<p class="text-muted">This is a dummy payment screen.</p>
 
-<form action="{% url 'checkout' %}" method="post" class="row g-3">
-  {% csrf_token %}
-  <input type="hidden" name="event_id" value="{{ event.id }}">
+<div class="container py-5">
+  <div class="row g-5 justify-content-center">
+    
+    <!-- Order Summary -->
+    <div class="col-lg-5">
+      <div class="card bg-dark text-light border-secondary rounded-4 shadow-sm sticky-top">
+        <div class="card-body">
+          <h5 class="card-title mb-4 d-flex justify-content-between align-items-center">
+            <span>Your Order</span>
+            <span class="badge bg-orange text-dark fs-6">£{{ event.cost }}</span>
+          </h5>
 
-  <div class="col-md-6">
-    <label class="form-label">Name on Card</label>
-    <input class="form-control" required>
-  </div>
-  <div class="col-md-6">
-    <label class="form-label">Email</label>
-    <input type="email" class="form-control" required>
-  </div>
-  <div class="col-md-4">
-    <label class="form-label">Card Number</label>
-    <input class="form-control" placeholder="4242 4242 4242 4242" required>
-  </div>
-  <div class="col-md-4">
-    <label class="form-label">Expiry</label>
-    <input class="form-control" placeholder="10/27" required>
-  </div>
-  <div class="col-md-4">
-    <label class="form-label">CVC</label>
-    <input class="form-control" placeholder="123" required>
-  </div>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img src="{{ event.image.url }}" alt="{{ event.title }}" class="img-fluid rounded-3" style="width: 100px; height: 100px; object-fit: cover;">
+            <div>
+              <h6 class="mb-1">{{ event.title }}</h6>
+              <p class="text-secondary small mb-1">📍 {{ event.location }}</p>
+              <p class="small text-warning mb-0">⭐ {{ event.rating|default:"-" }}</p>
+            </div>
+          </div>
 
-  <div class="col-12">
-    <button class="btn btn-orange btn-lg">Pay £{{ event.cost }}</button>
+          <hr class="border-secondary opacity-50 my-4">
+
+          <dl class="row mb-0 small">
+            <dt class="col-6 text-secondary">Subtotal</dt>
+            <dd class="col-6 text-end text-light">£{{ event.cost }}</dd>
+            <dt class="col-6 text-secondary">Service Fee</dt>
+            <dd class="col-6 text-end text-light">£0.00</dd>
+            <dt class="col-6 text-secondary">Tax</dt>
+            <dd class="col-6 text-end text-light">£0.00</dd>
+          </dl>
+
+          <hr class="border-secondary opacity-50 my-3">
+
+          <div class="d-flex justify-content-between align-items-center fw-bold fs-5">
+            <span>Total</span>
+            <span class="text-orange">£{{ event.cost }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Form -->
+    <div class="col-lg-7">
+      <div class="card bg-dark text-light border-secondary rounded-4 shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title mb-4">Payment Details</h3>
+          <p class="text-secondary mb-4">This is a dummy payment screen — no real processing will occur, please don't enter real card details!</p>
+
+          <form action="{% url 'checkout' %}" method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="event_id" value="{{ event.id }}">
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Name on Card</label>
+                <input type="text" name="name" class="form-control bg-dark border-secondary text-light" required>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-control bg-dark border-secondary text-light" required>
+              </div>
+
+              <div class="col-md-8">
+                <label class="form-label">Card Number</label>
+                <input type="text" class="form-control bg-dark border-secondary text-light" placeholder="4242 4242 4242 4242" required>
+              </div>
+
+              <div class="col-md-2">
+                <label class="form-label">Expiry</label>
+                <input type="text" class="form-control bg-dark border-secondary text-light" placeholder="10/27" required>
+              </div>
+
+              <div class="col-md-2">
+                <label class="form-label">CVC</label>
+                <input type="text" class="form-control bg-dark border-secondary text-light" placeholder="123" required>
+              </div>
+
+              <div class="col-12">
+                <hr class="border-secondary opacity-50 my-4">
+                <button class="btn btn-orange btn-lg w-100 py-2 fw-semibold shadow-sm">
+                  Pay £{{ event.cost }}
+                </button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
   </div>
-</form>
+</div>
+
 {% endblock %}
