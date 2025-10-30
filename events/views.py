@@ -13,6 +13,18 @@ def home(request):
 def about(request):
     return render(request, 'events/about.html')
 
+def faq(request):
+    return render(request, 'events/faq.html')
+
+def privacy(request):
+    return render(request, 'events/privacy.html')
+
+def terms(request):
+    return render(request, 'events/terms.html')
+
+def contact(request):
+    return render(request, 'events/contact.html')
+
 class EventListView(ListView):
     model = Event
     template_name = 'events/event_list.html'

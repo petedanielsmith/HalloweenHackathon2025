@@ -10,4 +10,8 @@ urlpatterns = [
     path('events/<int:pk>/purchase/', views.purchase, name='purchase'),
     path('checkout/', views.checkout, name='checkout'),
     path('checkout/success/', views.checkout_success, name='checkout_success'),
+    path('faq/', views.faq, name='faq'),
+    path('privacy/', views.privacy, name='privacy'),
+    path('terms/', views.terms, name='terms'),
+    path('contact/', views.contact, name='contact'),
 ]

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}FAQ • Spooky Experiences{% endblock %}
+{% block content %}
+  <div class="container py-4">
+    <h1 class="mb-4 text-center">Frequently Asked Questions</h1>
+
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item bg-dark text-light border-secondary">
+        <h2 class="accordion-header" id="faq1">
+          <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+            What are spooky experiences?
+          </button>
+        </h2>
+        <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-secondary">
+            They’re Halloween-themed adventures like haunted walks and ghost tours.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item bg-dark text-light border-secondary">
+        <h2 class="accordion-header" id="faq2">
+          <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+            Can I book events year-round?
+          </button>
+        </h2>
+        <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-secondary">
+            Most are Halloween season only — check each event’s details for dates.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
