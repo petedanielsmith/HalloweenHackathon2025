@@ -14,38 +14,58 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-      body {
-        background: #0d0c13;
-        color: #eee;
-      }
-      .navbar,
-      .footer {
-        background: #16151f;
-      }
-      a,
-      .nav-link,
-      .navbar-brand {
-        color: #f6a824 !important;
-      }
-      .card {
-        background: #1f1e2b;
-        color: #eee;
-        border: none;
-      }
-      .btn-orange {
-  background-color: #f6a824;
-  color: #1f1e2b !important;
-  border: none;
-  font-weight: 600;
-}
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+  }
 
-.btn-orange:hover {
-  background-color: #d8900f;
-  color: #fff !important;
-  transition: background-color 0.2s ease;
-}
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #0d0c13;
+    color: #eee;
+  }
 
-    </style>
+  main {
+    flex: 1 0 auto; /* let main expand to fill space */
+  }
+
+  .footer {
+    flex-shrink: 0; /* footer stays at bottom */
+    background: #16151f;
+  }
+
+  .navbar {
+    background: #16151f;
+  }
+
+  a,
+  .nav-link,
+  .navbar-brand {
+    color: #f6a824 !important;
+  }
+
+  .card {
+    background: #1f1e2b;
+    color: #eee;
+    border: none;
+  }
+
+  .btn-orange {
+    background-color: #f6a824;
+    color: #1f1e2b !important;
+    border: none;
+    font-weight: 600;
+  }
+
+  .btn-orange:hover {
+    background-color: #d8900f;
+    color: #fff !important;
+    transition: background-color 0.2s ease;
+  }
+</style>
   </head>
   <body>
     <!-- NAVBAR -->
