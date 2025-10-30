@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home • Spooky Experiences
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+  <h1 class="display-5">Welcome, brave soul…</h1>
+  <p class="lead mt-3">
+    Hand-picked Halloween-themed experiences: ghost walks, haunted stays, and
+    after-dark adventures.
+  </p>
+  <a class="btn btn-orange btn-lg mt-3" href="{% url 'event_list' %}">
+    Browse Events
+  </a>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Success!{% endblock %}
+{% block content %}
+<div class="text-center">
+  <h1>🎉 Payment successful (pretend)</h1>
+  <p>Thanks for booking! A confirmation email would be sent in a real system.</p>
+  <a href="{% url 'event_list' %}" class="btn btn-orange mt-3">Back to Events</a>
+</div>
+{% endblock %}

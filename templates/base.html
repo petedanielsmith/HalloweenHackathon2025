@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Spooky Experiences{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: #0d0c13;
+        color: #eee;
+      }
+      .navbar,
+      .footer {
+        background: #16151f;
+      }
+      a,
+      .nav-link,
+      .navbar-brand {
+        color: #f6a824 !important;
+      }
+      .card {
+        background: #1f1e2b;
+        color: #eee;
+        border: none;
+      }
+      .btn-orange {
+  background-color: #f6a824;
+  color: #1f1e2b !important;
+  border: none;
+  font-weight: 600;
+}
+
+.btn-orange:hover {
+  background-color: #d8900f;
+  color: #fff !important;
+  transition: background-color 0.2s ease;
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">🎃 Spooky Experiences</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="/events/">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="container my-4">{% block content %}{% endblock %}</main>
+
+    <!-- FOOTER -->
+    <footer class="footer py-4">
+      <div class="container text-center">
+        <small>© 2025 Spooky Experiences • Beware the midnight fog 👻</small>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

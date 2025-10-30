@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ event.title }} • Spooky Experiences{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-md-6">
+    <img src="{{ event.image_url }}" class="img-fluid rounded" alt="{{ event.title }}">
+  </div>
+  <div class="col-md-6">
+    <h1>{{ event.title }}</h1>
+    <p class="mb-1">📍 {{ event.location }}</p>
+    <p class="mb-1">⭐ {{ event.rating }}</p>
+    <p class="lead">£{{ event.cost }}</p>
+    <p>{{ event.description }}</p>
+
+    <a href="{% url 'purchase' event.pk %}" class="btn btn-orange btn-lg">Purchase</a>
+  </div>
+</div>
+{% endblock %}
