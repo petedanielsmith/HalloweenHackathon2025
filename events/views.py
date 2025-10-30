@@ -3,6 +3,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic import ListView, DetailView
 from .models import Event
+from django.db.models import Count, Avg
 
 def home(request):
     return render(request, 'events/home.html')
@@ -20,6 +21,33 @@ class EventDetailView(DetailView):
     model = Event
     template_name = 'events/event_detail.html'
     context_object_name = 'event'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        event = self.get_object()
+
+        # All ratings for this event
+        ratings = event.ratings.all()
+
+        # Aggregate counts for rating distribution (1–5)
+        distribution = (
+            ratings.values('rating')
+            .annotate(count=Count('rating'))
+            .order_by('-rating')
+        )
+
+        # Convert to dict for easier template access
+        dist_dict = {r['rating']: r['count'] for r in distribution}
+        total_reviews = ratings.count()
+        avg_rating = ratings.aggregate(avg=Avg('rating'))['avg'] or 0
+
+        context.update({
+            'ratings': ratings,
+            'total_reviews': total_reviews,
+            'avg_rating': round(avg_rating, 2),
+            'distribution': dist_dict,
+        })
+        return context
 
 def purchase(request, pk):
     event = get_object_or_404(Event, pk=pk)

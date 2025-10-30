@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load custom_tags %}
 {% block title %}{{ event.title }} • Spooky Experiences{% endblock %}
 {% block content %}
 <div class="row g-4">
@@ -15,4 +16,86 @@
     <a href="{% url 'purchase' event.pk %}" class="btn btn-orange btn-lg">Purchase</a>
   </div>
 </div>
+
+<section class="text-light py-5">
+  <div class="container-lg px-4">
+    <!-- Header -->
+    <div class="d-flex align-items-center gap-2 mb-4">
+      <h2 class="fs-3 fw-semibold mb-0">Reviews</h2>
+      <div class="d-flex align-items-center gap-2">
+        <div class="d-flex align-items-center text-warning">
+          {% for i in "12345"|make_list %}
+            {% if avg_rating|floatformat:1 >= i %}
+              <i class="bi bi-star-fill"></i>
+            {% elif avg_rating|floatformat:1 >= i|add:"-0.5" %}
+              <i class="bi bi-star-half"></i>
+            {% else %}
+              <i class="bi bi-star"></i>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <p class="mb-0 small text-secondary">({{ avg_rating }})</p>
+        <p class="mb-0 small text-primary">{{ total_reviews }} Reviews</p>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="row align-items-start gy-4 mb-5">
+      <div class="col-md-auto">
+        <p class="fs-2 fw-semibold mb-3">{{ avg_rating }} out of 5</p>
+      </div>
+
+      <div class="col-md">
+        {% for star in "54321"|make_list %}
+          {% with dist=distribution|default:"{}" %}
+            {% with count=dist|dict_get:star|default:"0" %}
+              {% if total_reviews %}
+                {% widthratio count total_reviews 100 as percent %}
+              {% else %}
+                {% with percent=0 %}
+                {% endwith %}
+              {% endif %}
+              <div class="d-flex align-items-center mb-2 gap-2">
+                <span class="small text-white">{{ star }}</span>
+                <i class="bi bi-star-fill text-warning"></i>
+                <div class="progress flex-grow-1 bg-secondary-subtle" style="height:6px;">
+                  <div class="progress-bar bg-warning" style="width:{{ percent }}%"></div>
+                </div>
+              </div>
+            {% endwith %}
+          {% endwith %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <hr class="border-secondary opacity-50 mb-4">
+
+    <!-- Individual reviews -->
+    {% for r in ratings %}
+      <div class="d-flex flex-column flex-sm-row gap-3 pb-4 border-bottom border-secondary-subtle mb-3">
+        <div class="flex-shrink-0 text-center text-sm-start">
+          <div class="text-warning mb-1">
+            {% for i in "12345"|make_list %}
+              {% if r.rating >= i|add:"0" %}
+                <i class="bi bi-star-fill"></i>
+              {% else %}
+                <i class="bi bi-star"></i>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <p class="fw-semibold mb-0 text-light">{{ r.name }}</p>
+          <p class="text-secondary small mb-1">
+            {{ r.created_at|date:"F j, Y \\a\\t H:i" }}
+          </p>
+        </div>
+
+        <div class="flex-grow-1">
+          <p class="text-secondary mb-3">{{ r.text|linebreaks }}</p>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-secondary">No reviews yet. Be the first to leave one!</p>
+    {% endfor %}
+  </div>
+</section>
 {% endblock %}
