@@ -72,7 +72,7 @@
 
     <!-- Individual reviews -->
     {% for r in ratings %}
-      <div class="d-flex flex-column flex-sm-row gap-3 pb-4 border-bottom border-secondary-subtle mb-3">
+      <div class="d-flex flex-column flex-sm-row gap-3 pb-4 mb-3">
         <div class="flex-shrink-0 text-center text-sm-start">
           <div class="text-warning mb-1">
             {% for i in "12345"|make_list %}
@@ -93,6 +93,9 @@
           <p class="text-secondary mb-3">{{ r.text|linebreaks }}</p>
         </div>
       </div>
+      {% if not forloop.last %}
+        <hr class="border-secondary opacity-50 mb-4">
+      {% endif %}
     {% empty %}
       <p class="text-secondary">No reviews yet. Be the first to leave one!</p>
     {% endfor %}
