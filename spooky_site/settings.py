@@ -130,5 +130,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES[0]['DIRS'] = [BASE_DIR / 'templates']
 
 # Static files (Bootstrap will come from CDN, but keep this for your CSS/images if needed)
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']  # create 'static' if you want custom files
+
+# Media files (for user-uploaded content, if any)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
