@@ -5,11 +5,110 @@ Contact Us • Spooky Experiences
 {% endblock %}
 
 {% block content %}
-<div class="text-center">
-  <h1 class="display-5">Contact Us</h1>
-  <p class="lead mt-3">
-    If you have any questions or feedback, feel free to reach out to us!
+<div class="container py-5">
+  <h1 class="text-center mb-4">Contact the Undead</h1>
+  <p class="text-center text-secondary mb-5">
+    Have a bone to pick? A haunting to report? Send your message through this cursed form — if it reaches us from beyond, we’ll reply by the next blood moon 🌕
   </p>
-  
+
+  <div class="bg-dark p-4 rounded-4 border border-secondary mx-auto shadow-lg" style="max-width: 700px;">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label text-light">Real Name</label>
+        <input type="text" class="form-control bg-dark text-light border-secondary" placeholder="e.g. Jonathan Harker" required>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label text-light">Monster Name</label>
+        <input type="text" class="form-control bg-dark text-light border-secondary" placeholder="e.g. Count Dracula" required>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label text-light">Email Address</label>
+        <input type="email" class="form-control bg-dark text-light border-secondary" placeholder="fangs@castlevampire.com" required>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label text-light">Century Born</label>
+        <select class="form-select bg-dark text-light border-secondary" required>
+          <option selected disabled>Choose...</option>
+          {% for c in "15,16,17,18,19,20,21"|cut:"," %}
+          <option>{{ c }}th Century</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label text-light">Type of Undead</label>
+        <select class="form-select bg-dark text-light border-secondary" required>
+          <option selected disabled>Choose your form...</option>
+          <option>Vampire</option>
+          <option>Zombie</option>
+          <option>Ghost</option>
+          <option>Ghoul</option>
+          <option>Banshee</option>
+          <option>Demon</option>
+          <option>Wraith</option>
+          <option>Skeleton</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label text-light">Evil Rating</label>
+        <select class="form-select bg-dark text-light border-secondary" required>
+          <option selected disabled>Choose...</option>
+          <option>Very Evil 😈</option>
+          <option>Moderately Evil 😬</option>
+          <option>Average Evil 😐</option>
+          <option>Casper-Level Friendly 👻</option>
+        </select>
+      </div>
+
+      <div class="col-12">
+        <label class="form-label text-light">Message</label>
+        <textarea rows="4" class="form-control bg-dark text-light border-secondary" placeholder="Share your dark thoughts..." required></textarea>
+      </div>
+
+      <!-- Optional fun checkbox -->
+      <div class="col-12 form-check mt-2">
+        <input class="form-check-input bg-dark border-secondary" type="checkbox" id="oathCheck" required>
+        <label class="form-check-label text-secondary small" for="oathCheck">
+          I solemnly swear that I am up to no good (and not alive).
+        </label>
+      </div>
+
+      <div class="col-12 text-center mt-4">
+        <button  class="btn btn-orange btn-lg px-5" data-bs-toggle="modal" data-bs-target="#contactusModal">
+          Send Message <i class="bi bi-envelope-fill ms-2"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center text-secondary mt-4 small">
+    <i class="bi bi-moon-stars"></i> Expect replies between midnight and 3 a.m. only.
+  </div>
+</div>
+
+<!-- Modal for contact us -->
+<div class="modal fade" id="contactusModal" tabindex="-1" aria-labelledby="contactusLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light border border-secondary rounded-4 shadow-lg">
+      <div class="modal-header border-0">
+        <h1 class="modal-title fs-5" id="contactusLabel">We will get back to you soon!</h1>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-secondary mb-0">
+          Your message has been sent into the void… we’ll respond if we can summon the energy! 👀<br/ >
+          We will contact you in your dreams.... 💤
+        </p>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-orange px-4" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
