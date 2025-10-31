@@ -23,7 +23,8 @@ def terms(request):
     return render(request, 'events/terms.html')
 
 def contact(request):
-    return render(request, 'events/contact.html')
+    centuries = list(range(15, 22))  # 15 → 21
+    return render(request, 'events/contact.html', {'centuries': centuries})
 
 class EventListView(ListView):
     model = Event
