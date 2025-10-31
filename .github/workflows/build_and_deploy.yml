@@ -58,3 +58,10 @@ jobs:
             echo "Updating service..."
             echo ${{ secrets.REGISTRY_PASSWORD_PRODUCTION }} | docker login -u ${{ secrets.REGISTRY_USER_PRODUCTION }} --password-stdin $(echo $REGISTRY)
             docker service update --force --with-registry-auth --image $(echo $REGISTRY)/$(echo $IMAGE_NAME):latest $(echo $SERVICE_NAME)
+
+            echo "Waiting for container to start..."
+            sleep 10
+
+            echo "Running collectstatic..."
+            CID=$(docker ps --filter "name=$(echo $SERVICE_NAME)" --format "{{.ID}}" | head -n 1)
+            docker exec -i $CID python manage.py collectstatic --noinput
