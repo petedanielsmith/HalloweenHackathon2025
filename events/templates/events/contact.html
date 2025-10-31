@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load custom_tags %}
 
 {% block title %}
 Contact Us • Spooky Experiences
@@ -32,8 +33,8 @@ Contact Us • Spooky Experiences
         <label class="form-label text-light">Century Born</label>
         <select class="form-select bg-dark text-light border-secondary" required>
           <option selected disabled>Choose...</option>
-          {% for c in "15,16,17,18,19,20,21"|cut:"," %}
-          <option>{{ c }}th Century</option>
+          {% for c in centuries %}
+            <option>{{ c|ordinal }} Century</option>
           {% endfor %}
         </select>
       </div>
