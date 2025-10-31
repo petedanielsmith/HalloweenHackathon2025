@@ -13,6 +13,9 @@ RUN pip install --no-cache-dir psycopg2-binary
 # Copy project files
 COPY . .
 
+# Collect static files at build time
+RUN python manage.py collectstatic --noinput
+
 # Expose port 8000 (same as runserver)
 EXPOSE 8000
 
