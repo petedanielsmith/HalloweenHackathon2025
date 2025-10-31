@@ -55,6 +55,12 @@ a,
     color: #f6a824 !important;
 }
 
+.btn-outline-warning:hover{
+    background-color: #d8900f;
+    color: #ffffff !important;
+    transition: background-color 0.2s ease;
+}
+
 .modal-content {
     background: #1a1925 !important;
     color: #eee;
@@ -73,3 +79,15 @@ a,
 .modal-content:hover {
     box-shadow: 0 0 20px rgba(246, 168, 36, 0.15);
 }
+
+
+@media (min-width: 992px) {
+    .mx-lg-n150 { margin-left: -150px !important; margin-right: -150px !important; }
+    .mt-lg-n50 { margin-top: -50px !important; }
+  }
+
+  /* Make sure images fit nicely in the ratio box */
+.object-fit-cover {
+  object-fit: cover;
+}
+
