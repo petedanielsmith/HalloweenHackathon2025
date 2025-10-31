@@ -73,3 +73,9 @@ a,
 .modal-content:hover {
     box-shadow: 0 0 20px rgba(246, 168, 36, 0.15);
 }
+
+
+@media (min-width: 992px) {
+    .mx-lg-n150 { margin-left: -150px !important; margin-right: -150px !important; }
+    .mt-lg-n50 { margin-top: -50px !important; }
+  }
