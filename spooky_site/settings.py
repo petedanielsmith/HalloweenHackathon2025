@@ -133,6 +133,9 @@ TEMPLATES[0]['DIRS'] = [BASE_DIR / 'templates']
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']  # create 'static' if you want custom files
 
+# Where 'collectstatic' will put files for production
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 # Media files (for user-uploaded content, if any)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
