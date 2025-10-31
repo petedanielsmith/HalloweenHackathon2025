@@ -8,7 +8,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Install PostgreSQL driver only inside the container
-RUN pip install --no-cache-dir psycopg[binary]
+RUN pip install --no-cache-dir psycopg2-binary
 
 # Copy project files
 COPY . .
