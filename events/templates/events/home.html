@@ -5,17 +5,46 @@ Home • Spooky Experiences
 {% endblock %}
 
 {% block content %}
-<div class="text-center">
-  <h1 class="display-5">Welcome, brave soul…</h1>
-  <p class="lead mt-3">
-    Hand-picked Halloween-themed experiences: ghost walks, haunted stays, and
-    after-dark adventures.
-  </p>
-  <a class="btn btn-orange btn-lg mt-3" href="{% url 'event_list' %}">
-    Browse Events
-  </a>
+<section
+  class="position-relative text-light py-5 py-md-6 mx-lg-n150 mt-lg-n50"
+  style="
+    background: url('/static/images/homepage_bg_pic.jpeg') center center / cover no-repeat;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    z-index: -40;
+  "
+>
+  <!-- Overlay for readability -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(13, 12, 19, 0.75); z-index: 0;"></div>
 
-  {% load static %}
-<img style="width: 200px; height: auto;" src="{% static 'images/grave.png' %}" alt="Static test">
-</div>
+  <!-- Foreground content -->
+  <div class="container position-relative z-1">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-6">
+
+      </div>
+
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold mb-3 text-warning">
+          Dare to Experience the Unseen
+        </h1>
+        <p class="lead text-secondary mb-4">
+          Join us beyond the veil — a curated collection of haunted events, paranormal tours, and otherworldly adventures. 
+          Whether you’re a curious mortal or a part-time phantom, there’s something chilling for everyone.
+        </p>
+
+        <a href="/events/" class="btn btn-orange btn-lg me-2">
+          Browse Events
+          <i class="bi bi-arrow-right-circle ms-2"></i>
+        </a>
+
+        <a href="/about/" class="btn btn-outline-warning btn-lg">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}
