@@ -55,6 +55,12 @@ a,
     color: #f6a824 !important;
 }
 
+.btn-outline-warning:hover{
+    background-color: #d8900f;
+    color: #ffffff !important;
+    transition: background-color 0.2s ease;
+}
+
 .modal-content {
     background: #1a1925 !important;
     color: #eee;

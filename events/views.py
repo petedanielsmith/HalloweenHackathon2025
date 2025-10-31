@@ -22,6 +22,18 @@ def privacy(request):
 def terms(request):
     return render(request, 'events/terms.html')
 
+def cult(request):
+    return render(request, 'events/cult.html')
+
+def feasting(request):
+    return render(request, 'events/feasting.html')
+
+def haunting(request):
+    return render(request, 'events/haunting.html')
+
+def possession(request):
+    return render(request, 'events/possession.html')
+
 def contact(request):
     centuries = list(range(15, 22))  # 15 → 21
     return render(request, 'events/contact.html', {'centuries': centuries})
@@ -37,6 +49,7 @@ class EventListView(ListView):
         q = self.request.GET.get('q')
         min_rating = self.request.GET.get('min_rating')
         max_cost = self.request.GET.get('max_cost')
+        group = self.request.GET.get('group')
 
         if q:
             queryset = queryset.filter(title__icontains=q) | queryset.filter(location__icontains=q)
@@ -44,8 +57,15 @@ class EventListView(ListView):
             queryset = queryset.filter(rating__gte=min_rating)
         if max_cost:
             queryset = queryset.filter(cost__lte=max_cost)
+        if group:
+            queryset = queryset.filter(group=group)
 
         return queryset
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['group_choices'] = Event.GROUP_CHOICES
+        return context
 
     def get(self, request, *args, **kwargs):
         """

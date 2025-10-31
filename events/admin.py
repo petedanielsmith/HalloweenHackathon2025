@@ -11,7 +11,8 @@ class RatingInline(admin.TabularInline):  # or StackedInline for full form layou
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('title', 'location', 'cost', 'rating')
+    list_display = ('title', 'group', 'location', 'cost', 'rating')
+    list_filter = ('group',)
     inlines = [RatingInline]
     readonly_fields = ('rating',)
     search_fields = ('title', 'location', 'description')
