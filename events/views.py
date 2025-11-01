@@ -6,6 +6,7 @@ from .models import Event
 from django.db.models import Count, Avg
 from django.db.models import Q
 from django.utils.http import urlencode
+import random
 
 def home(request):
     return render(request, 'events/home.html')
@@ -111,8 +112,21 @@ class EventDetailView(DetailView):
 
 def purchase(request, pk):
     event = get_object_or_404(Event, pk=pk)
-    # Show a dummy payment page (no real processing)
-    return render(request, 'events/purchase.html', {'event': event})
+    possible_gifts = [
+        "Cauldron of bats",
+        "Anti-Garlic Spray",
+        'Poltergeist (“we need to get rid...”)',
+        "Selection of cursed artifacts",
+        "A jack-o'-lantern",
+    ]
+    # Randomly pick 1 or 2 unique gifts
+    num_gifts = random.choice([1, 2])
+    free_gifts = random.sample(possible_gifts, num_gifts)
+    context = {
+        "event": event,
+        "free_gifts": free_gifts,
+    }
+    return render(request, "events/purchase.html", context)
 
 def checkout(request):
     if request.method == 'POST':
