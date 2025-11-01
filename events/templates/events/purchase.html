@@ -27,7 +27,7 @@
 
           <dl class="row mb-0 small">
             <dt class="col-6">Subtotal</dt>
-            <dd class="col-6 text-end text-light">£{{ event.cost }}</dd>
+            <dd class="col-6 text-end text-light">👻 {{ event.cost|floatformat:0 }} souls</dd>
           </dl>
 
           <hr class="border-secondary opacity-50 my-3">
@@ -46,7 +46,7 @@
 
           <div class="d-flex justify-content-between align-items-center fw-bold fs-5">
             <span>Total</span>
-            <span class="text-orange">£{{ event.cost }}</span>
+            <span class="text-orange">👻 {{ event.cost|floatformat:0 }} souls</span>
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@
               <div class="col-12">
                 <hr class="border-secondary opacity-50 my-4">
                 <button class="btn btn-orange btn-lg w-100 py-2 fw-semibold shadow-sm">
-                  Pay £{{ event.cost }}
+                  Pay 👻 {{ event.cost|floatformat:0 }} souls
                 </button>
               </div>
             </div>
