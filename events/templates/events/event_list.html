@@ -51,7 +51,7 @@ Events • Spooky Experiences
 
   <!-- Max Cost -->
   <div class="col-6 col-md-2">
-    <label class="form-label text-warning fw-semibold">Max Cost (£)</label>
+    <label class="form-label text-warning fw-semibold">Max Cost (souls)</label>
     <input
       type="number"
       name="max_cost"
@@ -78,8 +78,10 @@ Events • Spooky Experiences
       {% if event.image %}
       <div class="position-relative">
         <img src="{{ event.image.url }}" class="card-img-top rounded-top object-fit-cover" alt="{{ event.title }}">
-        <div class="position-absolute top-0 end-0 m-2 bg-warning text-dark fw-bold rounded-circle d-flex align-items-center justify-content-center shadow" style="width: 60px; height: 60px;">
-          £{{ event.cost|floatformat:0 }}
+        <div class="position-absolute top-0 end-0 m-2 text-dark fw-bold d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; background-image: url('/static/images/ghost.png'); background-size: contain;">
+          <span style="font-size: 1rem; padding-top:16px;">
+          {{ event.cost|floatformat:0 }}
+          </span>
         </div>
       </div>
       {% else %}
