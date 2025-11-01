@@ -1,0 +1,66 @@
+    /* Card layout */
+  .flip-card {
+    width: 120px;
+    height: 160px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+
+  .flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .flip-front {
+    background: #1f1e2b;
+    border: 2px solid #f6a824;
+  }
+
+  .flip-back {
+    transform: rotateY(180deg);
+    background: #f6a824;
+  }
+
+  .flip-card.locked {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  
+  /* Flicker animation */
+  @keyframes flicker {
+    0%, 100% { filter: brightness(1); }
+    10% { filter: brightness(0.2); }
+    20% { filter: brightness(1.4); }
+    30% { filter: brightness(0.3); }
+    40% { filter: brightness(1.2); }
+    50% { filter: brightness(0.5); }
+    60% { filter: brightness(1.3); }
+    70% { filter: brightness(0.4); }
+    80% { filter: brightness(1.1); }
+    90% { filter: brightness(0.8); }
+  }
+
+  .flicker {
+    animation: flicker 0.3s infinite;
+  }
+
+  .hide-treat{
+    display: none;
+  }
