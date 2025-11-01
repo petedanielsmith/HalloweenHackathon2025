@@ -9,8 +9,8 @@ Events • Spooky Experiences
 
 <!-- FILTER BAR -->
  <form method="get" 
-      class="row g-3 align-items-end mb-5 p-4 rounded-4 shadow-sm border border-secondary-subtle bg-gradient"
-      style="background: linear-gradient(145deg, #1a1924 0%, #0d0c13 100%);">
+      class="row g-3 align-items-end mb-5 p-4 rounded-4 shadow-sm"
+      style="background: linear-gradient(145deg, #1a1924 0%, #0d0c13 100%); border: 1px solid rgba(255, 193, 7, 0.65); margin-top: 10px;">
 
   <!-- Search -->
   <div class="col-12 col-md-4">
@@ -64,7 +64,7 @@ Events • Spooky Experiences
 
   <!-- Submit Button -->
   <div class="col-6 col-md-1 d-grid">
-    <button class="btn btn-orange btn-lg fw-semibold" type="submit">
+    <button class="btn btn-outline-warning btn-lg fw-semibold" type="submit">
       <i class="bi bi-funnel-fill me-1"></i> Go
     </button>
   </div>
@@ -125,18 +125,18 @@ Events • Spooky Experiences
 {% if is_paginated %}
   <div class="pagination justify-content-center mt-4">
     {% if page_obj.has_previous %}
-      <a class="btn btn-secondary me-2"
+      <a class="btn btn-outline-warning me-2"
          href="?page={{ page_obj.previous_page_number }}{% for k, v in request.GET.items %}{% if k != 'page' and v %}&{{ k }}={{ v }}{% endif %}{% endfor %}">
         Previous
       </a>
     {% endif %}
 
-    <span class="btn btn-outline-light disabled">
+    <span class="btn btn-outline-warning disabled">
       Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
     </span>
 
     {% if page_obj.has_next %}
-      <a class="btn btn-secondary ms-2"
+      <a class="btn btn-outline-warning ms-2"
          href="?page={{ page_obj.next_page_number }}{% for k, v in request.GET.items %}{% if k != 'page' and v %}&{{ k }}={{ v }}{% endif %}{% endfor %}">
         Next
       </a>
@@ -144,6 +144,6 @@ Events • Spooky Experiences
   </div>
 {% endif %}
 
-
+<div class="row"><br /></div>
 
 {% endblock %}
