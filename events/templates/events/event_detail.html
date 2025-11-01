@@ -7,13 +7,16 @@
     <img src="{{ event.image.url }}" class="img-fluid rounded" alt="{{ event.title }}">
   </div>
   <div class="col-md-6">
-    <h1>{{ event.title }}</h1>
-    <p class="mb-1">📍 {{ event.location }}</p>
+    <h1 class="text-warning">{{ event.title }}</h1>
+    <p class="mb-1">{{ event.location }}</p>
     <p class="mb-1">⭐ {{ event.rating }}</p>
     <p class="lead">£{{ event.cost }}</p>
     <p>{{ event.description }}</p>
 
     <a href="{% url 'purchase' event.pk %}" class="btn btn-orange btn-lg">Purchase</a>
+    {% if event.details_url %}
+      <a href="{{ event.details_url }}" class="btn btn-outline-warning btn-lg" target="_blank">More Details</a>
+    {% endif %}
   </div>
 </div>
 
