@@ -22,18 +22,6 @@ def privacy(request):
 def terms(request):
     return render(request, 'events/terms.html')
 
-def cult(request):
-    return render(request, 'events/cult.html')
-
-def feasting(request):
-    return render(request, 'events/feasting.html')
-
-def haunting(request):
-    return render(request, 'events/haunting.html')
-
-def possession(request):
-    return render(request, 'events/possession.html')
-
 def contact(request):
     centuries = list(range(15, 22))  # 15 → 21
     return render(request, 'events/contact.html', {'centuries': centuries})
