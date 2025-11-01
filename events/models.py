@@ -15,7 +15,7 @@ class Event(models.Model):
     rating = models.DecimalField(max_digits=3, decimal_places=1, default=0)  # average rating
     cost = models.DecimalField(max_digits=8, decimal_places=2)     # e.g. 59.99
     location = models.CharField(max_length=200)
-    details_url = models.CharField(max_length=200, default="")
+    details_url = models.CharField(max_length=200, blank=True, default="")
     image = models.ImageField(upload_to='events/', blank=True, null=True)
     group = models.CharField(max_length=20, choices=GROUP_CHOICES, default='haunt')
 
