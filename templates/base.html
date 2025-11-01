@@ -20,30 +20,48 @@
   </head>
   <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark">
       <div class="container">
         <a class="navbar-brand" href="/">🎃 Spooky Experiences</a>
+
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="/events/">Events</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item me-lg-3">
               <a class="nav-link" href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="btn btn-orange w-100 w-lg-auto mt-2 mt-lg-0"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#signupModal"
+              >
+                Sign Up
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
 
     <!-- MAIN CONTENT -->
     <main class="container my-4">{% block content %}{% endblock %}</main>
@@ -120,6 +138,29 @@
           <div class="modal-body">
             <p class="text-secondary mb-0">
               Your email would be subscribed to our newsletter… if we had coded that functionality! 🎃
+            </p>
+          </div>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-orange px-4" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Signup -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-light border border-secondary rounded-4 shadow-lg">
+          <div class="modal-header border-0">
+            <h1 class="modal-title fs-5" id="signupLabel">Sign Up</h1>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-secondary mb-0">
+              Unfortunately, the sign up functionality is only available for the undead… for now! 🦇
+            </p>
+            <p class="text-secondary mb-0">
+              Maybe we will see you sooner than you think… 👻
             </p>
           </div>
           <div class="modal-footer border-0">
