@@ -178,9 +178,9 @@ Our team have decided for this Halloween theme Hackathon to naturally go with co
 
 #### Logo
 
-- PENDING
+- We created this logo for our website.
 
-![logo](ROUTE)
+![logo](static/images/logo-icon.png)
 
 #### Favicon
 
