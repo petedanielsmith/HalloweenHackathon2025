@@ -1,9 +1,74 @@
 {% extends "base.html" %}
 {% block title %}Success!{% endblock %}
 {% block content %}
-<div class="text-center">
-  <h1>🎉 Payment successful (pretend)</h1>
-  <p>Thanks for booking! A confirmation email would be sent in a real system.</p>
-  <a href="{% url 'event_list' %}" class="btn btn-orange mt-3">Back to Events</a>
+<div class="container py-5 position-relative">
+
+  <!-- floating ghosties just for fun -->
+  <div class="position-absolute top-0 start-0 translate-middle-y d-none d-md-block" style="opacity:.08; font-size:4rem;">👻</div>
+  <div class="position-absolute top-50 end-0 translate-middle d-none d-lg-block" style="opacity:.06; font-size:5rem;">🦇</div>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow-lg border-0" style="background:#1f1e2b;">
+        <div class="card-body p-4 p-md-5 row justify-content-center">
+
+          <!-- Header -->
+          <div class="row mb-3 text-center">
+            <div>
+              <h1 class="h3 mb-0 text-light">Boo-tiful! Your order is confirmed.</h1>
+              <p class="text-secondary mb-0">A receipt has been etched into the astral plane.</p>
+            </div>
+          </div>
+
+          <!-- Order info strip -->
+          <div class="d-flex flex-wrap gap-3 align-items-center mb-4">
+            <span class="badge text-bg-success">Status: Materialising</span>
+            <span class="badge text-bg-dark">Delivery window: Witching Hour (00:00–03:00)</span>
+          </div>
+
+          
+
+            <!-- Fun panel -->
+            <div class=" col-lg-6">
+              <div class="p-3 rounded-3 h-100" style="background:#16151f;">
+                <h3 class="h6 text-light mb-3">Haunting Tips™</h3>
+                <ul class="text-secondary small mb-0 ps-3">
+                  <li>Avoid mirrors after midnight—your reflection is on break.</li>
+                  <li>Moaning volume should remain neighbour-friendly (≤ 85 dB).</li>
+                  <li>Keep chains untangled to prevent trip-scares.</li>
+                  <li>Always knock three times. It’s the rules. We don’t make them. Oh wait—yes we do.</li>
+                </ul>
+
+                <div class="mt-4">
+                  <p class="text-secondary small mb-1">Ectoplasm stability</p>
+                  <div class="progress bg-dark" style="height:6px;">
+                    <div class="progress-bar bg-warning" style="width:73%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <!-- Footer note -->
+          <div class="mt-4 small text-secondary text-center">
+            P.S. If your order hasn’t materialised within 24 hours, try sprinkling a little salt clockwise and whisper,
+            “<em>no refunds, only revenants</em>.”
+          </div>
+
+        </div>
+      </div>
+
+      <!-- subtle success note -->
+      <p class="text-center text-secondary small mt-3">
+        Need help? Rattle your chains at <a href="/contact" class="link-warning">Contact Us</a>
+      </p>
+    </div>
+  </div>
 </div>
+
+<style>
+  /* keep to your theme */
+  .card { border: none; }
+</style>
 {% endblock %}

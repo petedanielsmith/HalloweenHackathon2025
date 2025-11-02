@@ -15,35 +15,57 @@
     <link href="/static/css/bats.css" rel="stylesheet">
     <link href="/static/css/eyes.css" rel="stylesheet">
     <link href="/static/css/site.css" rel="stylesheet">
+    <link href="/static/css/trick-or-treat.css" rel="stylesheet">
 
 
   </head>
   <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark">
       <div class="container">
         <a class="navbar-brand" href="/">🎃 Spooky Experiences</a>
+
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#trickOrTreatModal">Trick or Treat</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="/events/">Events</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item me-lg-3">
               <a class="nav-link" href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="btn btn-orange w-100 w-lg-auto mt-2 mt-lg-0"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#signupModal"
+              >
+                Sign Up
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
 
     <!-- MAIN CONTENT -->
     <main class="container my-4">{% block content %}{% endblock %}</main>
@@ -129,6 +151,84 @@
       </div>
     </div>
 
+    <!-- Modal for Signup -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-light border border-secondary rounded-4 shadow-lg">
+          <div class="modal-header border-0">
+            <h1 class="modal-title fs-5" id="signupLabel">Sign Up</h1>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-secondary mb-0">
+              Unfortunately, the sign up functionality is only available for the undead… for now! 🦇
+            </p>
+            <p class="text-secondary mb-0">
+              Maybe we will see you sooner than you think… 👻
+            </p>
+          </div>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-orange px-4" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for trick or treat card game -->
+    <div class="modal fade" id="trickOrTreatModal" tabindex="-1" aria-labelledby="trickOrTreatModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-light text-center p-4 rounded-4">
+          <div class="modal-header border-0">
+            <h5 class="modal-title text-warning" id="trickOrTreatModalLabel">Trick or Treat?</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-success hide-treat" role="alert" id="treatAlert">
+              We will let you live...for now!
+            </div>
+            <p class="mb-4 text-secondary">Pick wisely, mortal... only one hides your fate</p>
+            <!-- Card Row -->
+            <div class="d-flex justify-content-center gap-4">
+              <div class="flip-card" onclick="revealCard(this)">
+                <div class="flip-inner">
+                  <div class="flip-front d-flex justify-content-center align-items-center">
+                    <i class="bi bi-question-circle text-warning fs-1"></i>
+                  </div>
+                  <div class="flip-back d-flex justify-content-center align-items-center text-dark fw-bold fs-3"></div>
+                </div>
+              </div>
+              <div class="flip-card" onclick="revealCard(this)">
+                <div class="flip-inner">
+                  <div class="flip-front d-flex justify-content-center align-items-center">
+                    <i class="bi bi-question-circle text-warning fs-1"></i>
+                  </div>
+                  <div class="flip-back d-flex justify-content-center align-items-center text-dark fw-bold fs-3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fullscreen Scare Overlay for trick -->
+    <div id="scare-overlay" class="position-fixed top-0 start-0 w-100 h-100 d-none"
+        style="
+            background-color: black;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+        ">
+      <img id="scare-img" src="/static/images/trick-face-overlay.jpg"
+          alt="Boo!"
+          style="max-width:100%; max-height:100%; object-fit:contain; filter:brightness(1.1) contrast(1.2);" />
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -137,6 +237,13 @@
 
     <!-- Evil Eyes JS -->
     <script src="/static/js/eyes.js"></script>
+
+    <!-- Trick or Treat JS -->
+    <script src="/static/js/trick-or-treat.js"></script>
+
+    <!-- SFX -->
+    <audio id="scream-sound" src="/static/sounds/roar.mp3" preload="auto"></audio>
+    <audio id="laugh-sound" src="/static/sounds/laugh.mp3" preload="auto"></audio>
 
   </body>
 </html>

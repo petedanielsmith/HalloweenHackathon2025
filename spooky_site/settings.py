@@ -33,6 +33,14 @@ DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = [h.strip() for h in os.getenv("ALLOWED_HOSTS", "localhost").split(",")]
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost",
+    "http://127.0.0.1",
+] + [
+    origin.strip()
+    for origin in os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+    if origin.strip().startswith("http")
+]
 
 # Application definition
 
@@ -132,6 +140,9 @@ TEMPLATES[0]['DIRS'] = [BASE_DIR / 'templates']
 # Static files (Bootstrap will come from CDN, but keep this for your CSS/images if needed)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']  # create 'static' if you want custom files
+
+# Where 'collectstatic' will put files for production
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Media files (for user-uploaded content, if any)
 MEDIA_URL = '/media/'

@@ -14,8 +14,4 @@ urlpatterns = [
     path('privacy/', views.privacy, name='privacy'),
     path('terms/', views.terms, name='terms'),
     path('contact/', views.contact, name='contact'),
-    path('cult/', views.cult, name='cult'),
-    path('feasting/', views.feasting, name='feasting'),
-    path('haunting/', views.haunting, name='haunting'),
-    path('possession/', views.possession, name='possession'),
 ]

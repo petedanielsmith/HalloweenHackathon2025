@@ -18,7 +18,7 @@
             <img src="{{ event.image.url }}" alt="{{ event.title }}" class="img-fluid rounded-3" style="width: 100px; height: 100px; object-fit: cover;">
             <div>
               <h6 class="mb-1">{{ event.title }}</h6>
-              <p class="text-secondary small mb-1">📍 {{ event.location }}</p>
+              <p class="text-secondary small mb-1">{{ event.location }}</p>
               <p class="small text-warning mb-0">⭐ {{ event.rating|default:"-" }}</p>
             </div>
           </div>
@@ -26,19 +26,27 @@
           <hr class="border-secondary opacity-50 my-4">
 
           <dl class="row mb-0 small">
-            <dt class="col-6 text-secondary">Subtotal</dt>
-            <dd class="col-6 text-end text-light">£{{ event.cost }}</dd>
-            <dt class="col-6 text-secondary">Service Fee</dt>
-            <dd class="col-6 text-end text-light">£0.00</dd>
-            <dt class="col-6 text-secondary">Tax</dt>
-            <dd class="col-6 text-end text-light">£0.00</dd>
+            <dt class="col-6">Subtotal</dt>
+            <dd class="col-6 text-end text-light">👻 {{ event.cost|floatformat:0 }} souls</dd>
           </dl>
+
+          <hr class="border-secondary opacity-50 my-3">
+
+          <div class="row mb-2 small">
+            <span class="fw-bold">Free Gifts</span>
+          </div>
+          {% for gift in free_gifts %}
+          <dl class="row mb-0 small">
+            <dt class="col-9 text-secondary">{{ gift }}</dt>
+            <dd class="col-3 text-end text-light">Included</dd>
+          </dl>
+          {% endfor %}
 
           <hr class="border-secondary opacity-50 my-3">
 
           <div class="d-flex justify-content-between align-items-center fw-bold fs-5">
             <span>Total</span>
-            <span class="text-orange">£{{ event.cost }}</span>
+            <span class="text-orange">👻 {{ event.cost|floatformat:0 }} souls</span>
           </div>
         </div>
       </div>
@@ -49,7 +57,6 @@
       <div class="card bg-dark text-light border-secondary rounded-4 shadow-sm">
         <div class="card-body">
           <h3 class="card-title mb-4">Payment Details</h3>
-          <p class="text-secondary mb-4">This is a dummy payment screen — no real processing will occur, please don't enter real card details!</p>
 
           <form action="{% url 'checkout' %}" method="post" class="needs-validation" novalidate>
             {% csrf_token %}
@@ -84,7 +91,7 @@
               <div class="col-12">
                 <hr class="border-secondary opacity-50 my-4">
                 <button class="btn btn-orange btn-lg w-100 py-2 fw-semibold shadow-sm">
-                  Pay £{{ event.cost }}
+                  Pay 👻 {{ event.cost|floatformat:0 }} souls
                 </button>
               </div>
             </div>
