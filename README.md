@@ -1,7 +1,7 @@
-# Team Members
+# Hackathon Team Members
 
-- Peter Smith - [Github](https://www.linkedin.com/in/petedanielsmith/) - [LinkedIn](https://www.linkedin.com/in/petedanielsmith/)
-- Johnny Dussot - [Github](https://github.com/JonathanDussot) - [LinkedIn](www.linkedin.com/in/jonathan-dussot)
+- Peter Smith - [Github](https://github.com/users/petedanielsmith/projects/3) - [LinkedIn](https://www.linkedin.com/in/petedanielsmith/)
+- Johnny Dussot - [Github](https://github.com/JonathanDussot) - [LinkedIn](https://www.linkedin.com/in/jonathan-dussot/)
 - Matt McCarthy - [Github](https://github.com/SADGHOBLIN) - [LinkedIn](https://www.linkedin.com/in/sadghoblin/)
 - Sonia Sudiwala - [Github](https://github.com/Sonya-J00)
 
