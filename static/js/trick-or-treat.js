@@ -54,6 +54,15 @@ function revealCard(card) {
     }, 1500);
   }
 
+  //intro laugh
+  const gameModal = document.getElementById('trickOrTreatModal');
+  const introSound = new Audio('/static/sounds/TrickorTreat.mp3');
+
+  gameModal.addEventListener('shown.bs.modal', () => {
+    introSound.currentTime = 0;
+    introSound.play().catch(() => {});
+  });
+
   // Reset modal state
   const modal = document.getElementById('trickOrTreatModal');
   modal.addEventListener('hidden.bs.modal', () => {
