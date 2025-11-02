@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}500 • Something Went Terribly Wrong{% endblock %}
+
+{% block content %}
+<section class="py-5 text-center text-light bg-dark">
+  <div class="container py-5">
+    <h1 class="display-1 fw-bold text-danger mb-3">500</h1>
+    <p class="fs-3 fw-semibold mb-3">Something went terribly wrong...</p>
+    <p class="text-secondary mb-5">
+      Even our necromancers couldn’t bring this page back to life.  
+      A cursed error has struck our servers — please try again once the spirits calm.
+    </p>
+
+    <a href="/" class="btn btn-orange btn-lg me-2">
+      <i class="bi bi-house-door-fill me-2"></i>Back to Homepage
+    </a>
+    <a href="/contact/" class="btn btn-outline-warning btn-lg">
+      <i class="bi bi-envelope-fill me-2"></i>Contact Support
+    </a>
+  </div>
+</section>
+{% endblock %}
