@@ -90,7 +90,6 @@ The live link for "NAME" can be found [HERE](https://halloween-hackathon-25.pete
   + [Site User stories](#site-user-stories "Site User stories")
 + [Design](#design "Design")
   + [Colour Scheme](#colour-scheme "Colour Scheme")
-  + [Typography](#typography "Typography")
   + [Imagery](#imagery "Imagery")
 + [Features](#features "Features")
   + [Existing Features](#existing-features "Existing Features")
@@ -166,36 +165,27 @@ To feel welcomed by the existing community of undead users we have and explore o
 
 ### Colour Scheme:
 
-![Colour Palette](src/images/colour-palette.png)
+Our team have decided for this Halloween theme Hackathon to naturally go with colours that resemble our favourite holiday. 
 
-- #ffffff - Typically used as background colour for Navbar and card containers.
+- #0d0c13 - Typically used as background colour for the body of the page.
 
-- #f8f8f8 - Used as background colour of the app to provide an elegant contrast for elements with #ffffff.
+- #16151f - Typically used as the colour for the NavBar and the Footer of the page.
 
-- #e4454f - This colour is used to match the red colour from the logo and highlight icons when user hovers the mouse over them.
-
-- #888888 - Used as the color of my nav items and icons throughout the app.
-
-- #2142b2 - Primarily used for my buttons throughout the app.
-
-### Typography:
-All fonts were obtained from the Google Fonts library. I chose the following fonts for the page:
-
-- DM Sans - used throughout the page giving it a neutral, user-friendly feel.
+- #f6a824 - This is the colour we used for our nav-links, buttons while using a slightly lighter shade #d8900f for hover effects and button outlines.
 
 ### Imagery:
 
 #### Logo
 
-- This logo was created by me using [Free Logo Design](https://app.freelogodesign.org/signin).
+- PENDING
 
-![logo](src/images/logo.png)
+![logo](ROUTE)
 
 #### Favicon
 
-- This favicon was selected from [iconos8](https://iconos8.es/).
+- This favicon was selected from [iconos8](LINK).
 
-![Favicon](src/images/favicon.png)
+![Favicon](ROUTE)
 
 #### Sign up/ Sign in image
 
