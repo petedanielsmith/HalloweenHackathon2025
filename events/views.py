@@ -117,11 +117,12 @@ def purchase(request, pk):
         "Anti-Garlic Spray",
         'Poltergeist (“we need to get rid...”)',
         "Selection of cursed artifacts",
-        "A jack-o'-lantern",
     ]
     # Randomly pick 1 or 2 unique gifts
     num_gifts = random.choice([1, 2])
     free_gifts = random.sample(possible_gifts, num_gifts)
+    if event.group == "haunt":
+        free_gifts.append("Extra heavy chains")
     context = {
         "event": event,
         "free_gifts": free_gifts,
