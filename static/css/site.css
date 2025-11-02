@@ -12,7 +12,6 @@
     --link-color: #f6a824;
 
     --background-new: #122220;
-    /* accent: F46036 */
 }
 
 @font-face {
@@ -36,7 +35,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background: var(--background);
-    color: var(--primary-color);
+    color: var(--accent-color);
 }
 
 main {
@@ -50,7 +49,6 @@ main {
 
 .navbar {
     background: var(--background-accent);
-    overflow: visible;
 }
 
 a,
@@ -147,7 +145,6 @@ a,
 /* logo */
 .navbar-brand {
     position: relative;
-    overflow: visible;
 }
 .navbar-brand img {
     height: 125px;

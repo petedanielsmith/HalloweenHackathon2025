@@ -9,11 +9,11 @@ Home • Spooky Experiences
          style="min-height: 80vh; display: flex; align-items: center; overflow: hidden;">
 
   <!-- Background Image -->
-  <div class="position-absolute top-0 start-0 w-100 h-100 d-none d-lg-block"
+  <!-- <div class="position-absolute top-0 start-0 w-100 h-100 d-none d-lg-block"
        style="
          background: url('/static/images/background-2.webp') right center / contain no-repeat;
          z-index: -50; opacity: 0.4;
-       "></div>
+       "></div> -->
 
   <!-- Dark Overlay -->
   <!-- <div class="position-absolute top-0 start-0 w-100 h-100"
@@ -25,14 +25,14 @@ Home • Spooky Experiences
   <div class="container-fluid position-relative" style="z-index: 10;">
     <div class="row align-items-center">
       <div class="col-lg-7">
-        <img src="static\images\goblin-hero.webp" alt="image of a goblin cooking" class="img-fluid goblin-hero">
+        <img src="static/images/goblin-hero.webp" alt="image of a goblin cooking" class="img-fluid goblin-hero">
       </div>
 
       <div class="col-lg-5">
         <h1 class="display-5 fw-bold mb-3 title-heading title-xl">GRAVE GETAWAYS</h1>
         <p class="lead mb-4 sub-heading">
-          Join us beyond the veil — a curated collection of haunted events, paranormal tours, and otherworldly adventures.
-          Whether you’re a curious mortal or a part-time phantom, there’s something chilling for everyone.
+          <!-- Join us beyond the veil — a curated collection of haunted events, paranormal tours, and otherworldly adventures.
+          Whether you’re a curious mortal or a part-time phantom, there's something chilling for everyone. -->
         </p>
 
         <a href="/events/" class="btn btn-orange btn-lg me-2">
@@ -45,29 +45,105 @@ Home • Spooky Experiences
   </div>
 </section>
 
-<div class="container my-5">
-  <div class="row g-3 text-center">
+<!-- Info -->
+<section class="bg-dark text-light py-5 py-lg-6 rounded-4 mb-5 px-3">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h2 class="display-7 fw-bold text-warning mb-4">
+          The Only Marketplace for the Undead — This World or the Next
+        </h2>
+        <p class="lead text-secondary mb-4">
+          Welcome to <span class="text-warning fw-semibold">Spooky Experiences</span> — the premier hub for ghosts, ghouls,
+          banshees, and other restless souls. Whether you're haunting castles, swapping souls,
+          or looking for a spectral spa day, we’ve got it covered.
+        </p>
+        <a href="/events/" class="btn btn-outline-warning btn-lg">
+          All Events <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+      </div>
 
-    <div class="col-12 col-sm-6 col-lg-4">
-      <a href="/events/?group=rnr" class="btn btn-outline-warning w-100 py-3 fw-semibold shadow-sm">
-        🛌 Rest and Relaxation
-      </a>
+      <div class="col-lg-6">
+        <div class=" p-4">
+          <p class="lead text-secondary mb-3">
+            Our afterlife-approved platform connects the living and the departed alike — bringing
+            together haunted hosts, cursed curators, and thrill-seeking mortals in one convenient crypt.
+          </p>
+          <p class="lead text-secondary mb-3">
+            From <strong>ghostly tours</strong> to <strong>possession packages</strong>, every listing is guaranteed
+            to send chills down your spine — or whatever’s left of it.
+          </p>
+          <p class="lead text-secondary mb-3">
+            So whether you’re newly deceased and looking for a fresh start, or an ancient terror returning
+            from the depths, this is your portal to unforgettable (and occasionally fatal) fun.
+          </p>
+        </div>
+      </div>
     </div>
-
-    <div class="col-12 col-sm-6 col-lg-4">
-      <a href="/events/?group=possess" class="btn btn-outline-warning w-100 py-3 fw-semibold shadow-sm">
-        👁️ Possession
-      </a>
-    </div>
-
-    <div class="col-12 col-sm-6 col-lg-4">
-      <a href="/events/?group=haunt" class="btn btn-outline-warning w-100 py-3 fw-semibold shadow-sm">
-        🕯️ Haunting
-      </a>
-    </div>
-
   </div>
-</div>
+</section>
+
+<!-- Events -->
+<section class="bg-dark text-light py-5 py-lg-6 rounded-4">
+  <div class="container text-center text-md-start">
+    <div class="row mb-5">
+      <div class="col-lg-8 mx-auto text-center">
+        <h2 class="display-5 fw-bold accent-color title-heading mb-3">Pick Your Event</h2>
+        <p class="lead text-secondary">
+          Whether you’re looking to terrify the living, take control of a hapless soul, or simply
+          unwind from a long night of haunting, we have something for every restless spirit.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Haunting -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="p-4 bg-dark h-100">
+          <div class="d-flex align-items-center justify-content-center mb-4 rounded-circle bg-warning bg-opacity-25" style="width:60px; height:60px;">
+            <i class="bi bi-house-door accent-color fs-3"></i>
+          </div>
+          <h4 class="fw-bold accent-color mb-3">Haunting</h4>
+          <p class="text-light opacity-75 mb-4">
+            Explore our range of haunted venues and unearthly estates—perfect for rattling chains,
+            whispering in the dark, or scaring tourists who “don’t believe in ghosts.”
+          </p>
+          <a href="/events/?group=haunt" class="btn btn-outline-warning btn-sm">Start Haunting →</a>
+        </div>
+      </div>
+
+      <!-- Possession -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="p-4 bg-dark h-100">
+          <div class="d-flex align-items-center justify-content-center mb-4 rounded-circle bg-warning bg-opacity-25" style="width:60px; height:60px;">
+            <i class="bi bi-person-exclamation accent-color fs-3"></i>
+          </div>
+          <h4 class="fw-bold accent-color mb-3">Possession</h4>
+          <p class="text-light opacity-75 mb-4">
+            Choose your next unfortunate human host! From mild influence to full-blown demonic takeover,
+            our possession packages let you make an unforgettable entrance.
+          </p>
+          <a href="/events/?group=posses" class="btn btn-outline-warning btn-sm">Find a Host →</a>
+        </div>
+      </div>
+
+      <!-- Rest & Relaxation -->
+      <div class="col-12 col-md-6 col-lg-4 mx-md-auto">
+        <div class="p-4 bg-dark h-100">
+          <div class="d-flex align-items-center justify-content-center mb-4 rounded-circle bg-warning bg-opacity-25" style="width:60px; height:60px;">
+            <i class="bi bi-cup-hot accent-color fs-3"></i>
+          </div>
+          <h4 class="fw-bold accent-color mb-3">Rest & Relaxation</h4>
+          <p class="text-light opacity-75 mb-4">
+            Even spirits need a break. Enjoy eerie retreats, misty graveyard picnics, and our award-winning
+            spa for the eternally exhausted. No exorcisms allowed.
+          </p>
+          <a href="/events/?group=rnr" class="btn btn-outline-warning btn-sm">Unwind Now →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
