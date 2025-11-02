@@ -5,24 +5,37 @@ Home • Spooky Experiences
 {% endblock %}
 
 {% block content %}
-<section class="position-relative text-light">
-
-  <!-- Foreground Content -->
+<section class="position-relative text-light py-5 ">
   <div class="container-fluid position-relative" style="z-index: 10;">
-    <div class="row align-items-center">
-      <div class="col-lg-7">
-        <img src="static/images/goblin-hero.webp" alt="image of a goblin cooking" class="img-fluid">
+    <div class="row align-items-center flex-column flex-lg-row">
+      
+      <div class="col-lg-7 mb-4 mb-lg-0">
+        <img src="/static/images/goblin-hero.webp" alt="image of a goblin cooking" 
+             class="img-fluid"
+             style="object-fit: cover; max-height: 70vh; width: 100%;">
       </div>
 
-      <div class="col-lg-5">
-        <img src="static/images/full-logo.png" alt="Spooky Experiences Logo" class="mb-4 img-fluid">
+      <div class="col-lg-5 px-4 px-lg-5 text-center text-lg-start">
+        <h1 class="display-5 fw-bold text-warning mb-3">
+          Lost Souls
+        </h1>
+        <p class="lead text-secondary mb-4">
+          Your one-stop shop for soulful entertainment — from eerie adventures and ghostly getaways 
+          to full-blown possession experiences. Eternity’s never been this fun.
+        </p>
 
-
-        <a href="/about/" class="btn btn-outline-warning btn-lg">Learn More</a>
+        <a href="/events/" class="btn btn-orange btn-lg me-2 mb-3">
+          Browse Experiences <i class="bi bi-arrow-right-circle ms-2"></i>
+        </a>
+        <a href="/about/" class="btn btn-outline-warning btn-lg mb-3">
+          Learn More
+        </a>
       </div>
     </div>
   </div>
+
 </section>
+
 
 <!-- Info -->
 <section class="bg-dark text-light py-5 py-lg-6 rounded-4 mb-5 px-3">
@@ -79,9 +92,7 @@ Home • Spooky Experiences
       <!-- Haunting -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="p-4 bg-dark h-100">
-          <div class="d-flex align-items-center justify-content-center mb-4 rounded-circle bg-warning bg-opacity-25" style="width:60px; height:60px;">
-            <i class="bi bi-house-door accent-color fs-3"></i>
-          </div>
+          <img src="/static/images/haunted-house.png" alt="Haunted House Icon" class="mb-3 rounded-top w-100">
           <h4 class="fw-bold accent-color mb-3">Haunting</h4>
           <p class="text-light opacity-75 mb-4">
             Explore our range of haunted venues and unearthly estates—perfect for rattling chains,
@@ -94,9 +105,7 @@ Home • Spooky Experiences
       <!-- Possession -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="p-4 bg-dark h-100">
-          <div class="d-flex align-items-center justify-content-center mb-4 rounded-circle bg-warning bg-opacity-25" style="width:60px; height:60px;">
-            <i class="bi bi-person-exclamation accent-color fs-3"></i>
-          </div>
+          <img src="/static/images/possession.png" alt="Possession Icon" class="mb-3 rounded-top w-100">
           <h4 class="fw-bold accent-color mb-3">Possession</h4>
           <p class="text-light opacity-75 mb-4">
             Choose your next unfortunate human host! From mild influence to full-blown demonic takeover,
@@ -109,9 +118,7 @@ Home • Spooky Experiences
       <!-- Rest & Relaxation -->
       <div class="col-12 col-md-6 col-lg-4 mx-md-auto">
         <div class="p-4 bg-dark h-100">
-          <div class="d-flex align-items-center justify-content-center mb-4 rounded-circle bg-warning bg-opacity-25" style="width:60px; height:60px;">
-            <i class="bi bi-cup-hot accent-color fs-3"></i>
-          </div>
+          <img src="/static/images/trip-away.png" alt="Rest & Relaxation Icon" class="mb-3 rounded-top w-100">
           <h4 class="fw-bold accent-color mb-3">Rest & Relaxation</h4>
           <p class="text-light opacity-75 mb-4">
             Even spirits need a break. Enjoy eerie retreats, misty graveyard picnics, and our award-winning
