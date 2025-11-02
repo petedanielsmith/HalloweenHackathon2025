@@ -158,7 +158,8 @@ To feel welcomed by the existing community of undead users we have and explore o
 - [x] As an undead user, I can enter my rating of the event so others may see how terrifying it is.
 
 #### Navigation bar:
-- [x] As a user I can always view the NavBar so that I can navigate between pages.
+- [x] As an undead user I can always view the NavBar so that I can navigate between pages.
+- [x] As an undead user I can click on the logo to return to the home page.
 
 
 ## Design
