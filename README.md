@@ -1,3 +1,11 @@
+# Team Members
+
+- Peter Smith - [Github](https://www.linkedin.com/in/petedanielsmith/) - [LinkedIn](https://www.linkedin.com/in/petedanielsmith/)
+- Johnny Dussot - [Github](https://github.com/JonathanDussot) - [LinkedIn](www.linkedin.com/in/jonathan-dussot)
+- Matt McCarthy - [Github](https://github.com/SADGHOBLIN) - [LinkedIn](https://www.linkedin.com/in/sadghoblin/)
+- Sonia Sudiwala - [Github](https://github.com/Sonya-J00)
+
+
 
 # Lost Souls - Halloween Hackathon 0ct 2025
 Lost Souls is a site that has been created solely with the purpose of offering top-quality experiences to a market that hasn't been addressed as of yet; the Undead. The site allows our unliving users to book an event that appeals to them, whether it's a unique possession or haunting experience, or simply a little R&R away same four walls of the user's usual crypt.
