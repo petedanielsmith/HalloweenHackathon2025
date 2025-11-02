@@ -69,12 +69,12 @@ python3 manage.py runserver
 
 
 
-# NAME
-NAME is a site that has been created solely with the purpose of offering top-quality experiences to a market that hasn't been addressed as of yet; the Undead. The site allows our unliving users to book an event that appeals to them, whether it's a unique possession or haunting experience, or simply a little R&R away same four walls of the user's usual crypt.
+# Lost Souls
+Lost Souls is a site that has been created solely with the purpose of offering top-quality experiences to a market that hasn't been addressed as of yet; the Undead. The site allows our unliving users to book an event that appeals to them, whether it's a unique possession or haunting experience, or simply a little R&R away same four walls of the user's usual crypt.
 
 ![Site view across devices](route)
 
-The live link for "NAME" can be found [HERE](https://halloween-hackathon-25.petedanielsmith.co.uk/)
+The live link for "Lost Souls" can be found [HERE](https://halloween-hackathon-25.petedanielsmith.co.uk/)
 
 ## Table of Contents
 + [UX](#ux "UX")
