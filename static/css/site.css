@@ -83,7 +83,7 @@ a,
 }
 
 .hover-orange:hover {
-    color: var(--link-color);
+    color: var(--link-color) !important;
 }
 
 .btn-outline-warning {
@@ -163,3 +163,21 @@ a,
         min-height: 85px;
     }
   }
+
+  .form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: #FE4701;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(254, 71, 1, .25);
+}
+
+.form-control::placeholder {
+    color: var(--secondary-color);
+    opacity: 1;
+}
+
+.accordion-button:focus {
+    border-color: #FE4701;
+    box-shadow: 0 0 0 .25rem rgba(254, 71, 1, .25);
+}
