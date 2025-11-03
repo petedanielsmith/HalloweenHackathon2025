@@ -17,13 +17,17 @@
     <link href="/static/css/site.css" rel="stylesheet">
     <link href="/static/css/trick-or-treat.css" rel="stylesheet">
 
+    <link rel="icon" type="image/x-icon" href="{% static 'images/icons8-scream-128.png' %}">
 
   </head>
   <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="/">🎃 Spooky Experiences</a>
+        <a class="navbar-brand title-heading fw-bold" href="/">
+          <img src="/static/images/logo-icon.png" alt="logo" style="height: 60px; display: inline-block; margin-right: 10px;">
+          Lost Souls
+        </a>
 
         <button
           class="navbar-toggler"
@@ -116,16 +120,16 @@
         <div class="row align-items-center">
         <div class="col-lg-6 text-center text-lg-start">
           <div class="small text-secondary">
-            © 2025 Spooky Experiences. All Rights Reserved.
+            © 2025 Lost Souls. All Rights Reserved.
           </div>
         </div>
 
         <!-- Social -->
         
           <div class="col-lg-6 text-center text-lg-end mt-3 mt-lg-0">
-            <a href="#" class="text-secondary fs-5 me-3 hover-orange"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="text-secondary fs-5 me-3 hover-orange"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="text-secondary fs-5 me-3 hover-orange"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" class="text-secondary fs-5 me-3 hover-orange" aria-label="Go to facebook page"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" class="text-secondary fs-5 me-3 hover-orange" aria-label="Go to instagram page"><i class="bi bi-instagram"></i></a>
+            <a href="https://x.com/" target="_blank" class="text-secondary fs-5 me-3 hover-orange" aria-label="Go to twitter page"><i class="bi bi-twitter-x"></i></a>
           </div>
           </div>
       </div>
@@ -136,12 +140,12 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content bg-dark text-light border border-secondary rounded-4 shadow-lg">
           <div class="modal-header border-0">
-            <h1 class="modal-title fs-5" id="newsletterLabel">Email Subscribe!</h1>
+            <h1 class="modal-title fs-5" id="newsletterLabel">Newsletter Subscribed</h1>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <p class="text-secondary mb-0">
-              Your email would be subscribed to our newsletter… if we had coded that functionality! 🎃
+              Thanks, you are now on our mailing list!, we can forever haunt your inbox... 🎃
             </p>
           </div>
           <div class="modal-footer border-0">
